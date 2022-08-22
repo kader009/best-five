@@ -1,4 +1,8 @@
 
+body{
+  background: #000;
+  font-family: 'Fira Sans', sans-serif;
+}
 .color{
   color: #FF5E19;
 }
