@@ -1,11 +1,11 @@
 
 
-// first get player here
+
+
 
 const Myplayer = [];
 
 function Collect(NewPlayerName){
-  // console.log(NewPlayerName); 
 
   
   const NewCreate = document.getElementById('create');
@@ -13,9 +13,12 @@ function Collect(NewPlayerName){
   NewCreate.innerHTML = '';
   
   for(let i = 0; i < NewPlayerName.length; i++){
-    // console.log(Myplayer[i].getPlayers);
+  
+
+    
+    
     const Findname = Myplayer[i].getPlayers;
-    // console.log(Findname);
+    
     const ol = document.createElement('ol');
     ol.style.color = 'white'
     ol.innerHTML = `
@@ -26,8 +29,6 @@ function Collect(NewPlayerName){
     `;
     
     NewCreate.appendChild(ol);
-    
-
   }
     
 
@@ -37,8 +38,7 @@ function Collect(NewPlayerName){
 // get player value
 
 function PickName(element){
-  // console.log(element.parentNode.children);
-  // console.log(element.parentNode.children[0].innerText);
+  
   const PlayerName = element.parentNode.children[0].innerText;
 
   const NewPlayers = {
@@ -51,31 +51,34 @@ function PickName(element){
 
   document.getElementById('select').innerText = Myplayer.length;
 
-  // console.log(Myplayer.length);
-  // console.log(NewPlayers);
+  
 }
 
 
-// add addeventlistener
 
 document.getElementById('calculate').addEventListener('click', function(){
-  // console.log('you click it');
-  const InputValue = document.getElementById('budgetCal');
+
+  const Input = document.getElementById('budgetCal');
+  const InputValue = Input.value;
+
   const PlayerValue = document.getElementById('create');
+  const TotalPlayerValuestring = PlayerValue.innerText;
+  const TotalPlayerValue = parseFloat(TotalPlayerValuestring);
 
-  const NewValue = InputValue * PlayerValue;
-  console.log(NewValue);
+
+  const Expenses = document.getElementById('expenses');
+  const TotalExpensesStr = Expenses.innerText;
+  const TotalExpenses = parseFloat(TotalExpensesStr);
+  
+
+  const NewValuestr = TotalExpenses * TotalPlayerValue ;
+  const NewValue = parseFloat(NewValuestr);
+
+  Expenses.innerText = NewValue;
+
+
+
 })
-
-
-
-
-
-
-
-
-
-
 
 
 
